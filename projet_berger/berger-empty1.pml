@@ -40,22 +40,33 @@ init
  atomic {run B(); run M(); run C(); run L() };
 }
 
-never  {    /* !([](measure -> XX(((state_mouton==state_chou) -> (state_mouton==state_berger)) && ((state_mouton==state_loup) -> (state_mouton==state_berger))))) */
+never  {    /* !([](measure -> XX(((state_mouton==state_chou) -> (state_mouton==state_berger)) && ((state_mouton==state_loup) -> (state_mouton==state_berger)))) && <>(state_mouton && state_chou && state_loup && state_berger)) */
 T0_init:
 	do
-	:: ((measure)) -> goto accept_S0
-	:: (1) -> goto T0_init
+	:: (! ((state_mouton && state_chou && state_loup && state_berger))) -> goto accept_S2
+	:: ((measure)) -> goto accept_S1
+	:: (1) -> goto T0_S5
 	od;
-accept_S0:
+accept_S2:
 	do
-	:: (1) -> goto T0_S2
+	:: (! ((state_mouton && state_chou && state_loup && state_berger))) -> goto accept_S2
 	od;
-T0_S2:
+accept_S1:
+	do
+	:: (1) -> goto T0_S6
+	od;
+T0_S6:
 	do
 	:: atomic { (((! ((state_mouton==state_berger)) && (state_mouton==state_chou) && ((! ((state_mouton==state_berger)) && (state_mouton==state_chou)) || (! ((state_mouton==state_berger)) && (state_mouton==state_loup)))) || (! ((state_mouton==state_berger)) && (state_mouton==state_loup) && ((! ((state_mouton==state_berger)) && (state_mouton==state_chou)) || (! ((state_mouton==state_berger)) && (state_mouton==state_loup)))))) -> assert(!(((! ((state_mouton==state_berger)) && (state_mouton==state_chou) && ((! ((state_mouton==state_berger)) && (state_mouton==state_chou)) || (! ((state_mouton==state_berger)) && (state_mouton==state_loup)))) || (! ((state_mouton==state_berger)) && (state_mouton==state_loup) && ((! ((state_mouton==state_berger)) && (state_mouton==state_chou)) || (! ((state_mouton==state_berger)) && (state_mouton==state_loup))))))) }
+	od;
+T0_S5:
+	do
+	:: ((measure)) -> goto accept_S1
+	:: (1) -> goto T0_S5
 	od;
 accept_all:
 	skip
 }
+
 
 
