@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan move = [0] of {int};
+int Nb_pion = 10;</declaration>
+	<template>
+		<name x="5" y="5">Template</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="0" y="0">
+			<name x="-17" y="8">Game</name>
+		</location>
+		<location id="id1" x="136" y="0">
+			<name x="119" y="8">Finish</name>
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="-68" y="-76">move!1
+move!2
+...
+move!n</label>
+			<nail x="17" y="-42"/>
+			<nail x="0" y="-59"/>
+			<nail x="-17" y="-42"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="guard" x="25" y="-25">Nb_pion == 1</label>
+		</transition>
+	</template>
+	<template>
+		<name>Template0</name>
+		<location id="id2" x="0" y="0">
+			<name x="-17" y="-25">i,j</name>
+		</location>
+		<location id="id3" x="0" y="-68">
+			<name x="-34" y="-93">i, j+2</name>
+		</location>
+		<location id="id4" x="68" y="0">
+			<name x="34" y="-25">i+2, j</name>
+		</location>
+		<location id="id5" x="0" y="68">
+			<label kind="invariant" x="-34" y="42">i, j-2</label>
+		</location>
+		<location id="id6" x="-68" y="0">
+			<name x="-102" y="-25">i-2, j</name>
+		</location>
+		<location id="id7" x="-68" y="-68">
+			<name x="-110" y="-93">i-2, j+2</name>
+		</location>
+		<location id="id8" x="-68" y="-136">
+		</location>
+		<location id="id9" x="0" y="-136">
+		</location>
+		<location id="id10" x="68" y="-136">
+		</location>
+		<location id="id11" x="68" y="-68">
+			<name x="25" y="-93">i+2,j+2</name>
+		</location>
+		<location id="id12" x="68" y="68">
+			<name x="25" y="42">i+2, j-2</name>
+		</location>
+		<location id="id13" x="-68" y="68">
+			<name x="-110" y="42">i-2, j-2</name>
+		</location>
+		<location id="id14" x="-68" y="136">
+		</location>
+		<location id="id15" x="0" y="136">
+		</location>
+		<location id="id16" x="68" y="136">
+		</location>
+		<location id="id17" x="136" y="68">
+		</location>
+		<location id="id18" x="136" y="0">
+		</location>
+		<location id="id19" x="136" y="-68">
+		</location>
+		<location id="id20" x="-136" y="-68">
+		</location>
+		<location id="id21" x="-136" y="0">
+		</location>
+		<location id="id22" x="-136" y="68">
+		</location>
+		<init ref="id2"/>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id12"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id11"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id2"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-59" y="0">pion[i-1,j]</label>
+			<label kind="synchronisation" x="-59" y="17">move!k</label>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id6"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id21"/>
+		</transition>
+		<transition>
+			<source ref="id20"/>
+			<target ref="id7"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id20"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id9"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id3"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id7"/>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id3"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id18"/>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id4"/>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id19"/>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id11"/>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id19"/>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id18"/>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id22"/>
+		</transition>
+		<transition>
+			<source ref="id20"/>
+			<target ref="id21"/>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id20"/>
+		</transition>
+		<transition>
+			<source ref="id22"/>
+			<target ref="id21"/>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id14"/>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id15"/>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id16"/>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id15"/>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id14"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id13"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id6"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id7"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id8"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id7"/>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id6"/>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id13"/>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id5"/>
+		</transition>
+		<transition>
+			<source ref="id22"/>
+			<target ref="id13"/>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id22"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id13"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id5"/>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id12"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id17"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id16"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id12"/>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id4"/>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id11"/>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id10"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id11"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id4"/>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id12"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id2"/>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id5"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id15"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id5"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id3"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id5"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id4"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id3"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id6"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process = Template();
+// List one or more processes to be composed into a system.
+system Process;
+    </system>
+	<queries>
+		<query>
+			<formula></formula>
+			<comment></comment>
+		</query>
+	</queries>
+</nta>
