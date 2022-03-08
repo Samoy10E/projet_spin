@@ -36,53 +36,53 @@ move!n</label>
 		<location id="id2" x="0" y="0">
 			<name x="-17" y="-25">i,j</name>
 		</location>
-		<location id="id3" x="0" y="-68">
-			<name x="-34" y="-93">i, j+2</name>
+		<location id="id3" x="0" y="-102">
+			<name x="-34" y="-127">i, j+2</name>
 		</location>
-		<location id="id4" x="68" y="0">
-			<name x="34" y="-25">i+2, j</name>
+		<location id="id4" x="102" y="0">
+			<name x="68" y="-25">i+2, j</name>
 		</location>
-		<location id="id5" x="0" y="68">
-			<label kind="invariant" x="-34" y="42">i, j-2</label>
+		<location id="id5" x="0" y="102">
+			<label kind="invariant" x="-34" y="76">i, j-2</label>
 		</location>
-		<location id="id6" x="-68" y="0">
-			<name x="-102" y="-25">i-2, j</name>
+		<location id="id6" x="-102" y="0">
+			<name x="-136" y="-25">i-2, j</name>
 		</location>
-		<location id="id7" x="-68" y="-68">
-			<name x="-110" y="-93">i-2, j+2</name>
+		<location id="id7" x="-102" y="-102">
+			<name x="-144" y="-127">i-2, j+2</name>
 		</location>
-		<location id="id8" x="-68" y="-136">
+		<location id="id8" x="-102" y="-204">
 		</location>
-		<location id="id9" x="0" y="-136">
+		<location id="id9" x="0" y="-204">
 		</location>
-		<location id="id10" x="68" y="-136">
+		<location id="id10" x="102" y="-204">
 		</location>
-		<location id="id11" x="68" y="-68">
-			<name x="25" y="-93">i+2,j+2</name>
+		<location id="id11" x="102" y="-102">
+			<name x="59" y="-127">i+2,j+2</name>
 		</location>
-		<location id="id12" x="68" y="68">
-			<name x="25" y="42">i+2, j-2</name>
+		<location id="id12" x="102" y="102">
+			<name x="59" y="76">i+2, j-2</name>
 		</location>
-		<location id="id13" x="-68" y="68">
-			<name x="-110" y="42">i-2, j-2</name>
+		<location id="id13" x="-102" y="102">
+			<name x="-144" y="76">i-2, j-2</name>
 		</location>
-		<location id="id14" x="-68" y="136">
+		<location id="id14" x="-102" y="204">
 		</location>
-		<location id="id15" x="0" y="136">
+		<location id="id15" x="0" y="195">
 		</location>
-		<location id="id16" x="68" y="136">
+		<location id="id16" x="102" y="204">
 		</location>
-		<location id="id17" x="136" y="68">
+		<location id="id17" x="221" y="102">
 		</location>
-		<location id="id18" x="136" y="0">
+		<location id="id18" x="229" y="0">
 		</location>
-		<location id="id19" x="136" y="-68">
+		<location id="id19" x="229" y="-102">
 		</location>
-		<location id="id20" x="-136" y="-68">
+		<location id="id20" x="-204" y="-102">
 		</location>
-		<location id="id21" x="-136" y="0">
+		<location id="id21" x="-204" y="0">
 		</location>
-		<location id="id22" x="-136" y="68">
+		<location id="id22" x="-204" y="102">
 		</location>
 		<init ref="id2"/>
 		<transition>
@@ -100,8 +100,10 @@ move!n</label>
 		<transition>
 			<source ref="id6"/>
 			<target ref="id2"/>
-			<label kind="guard" x="-59" y="0">pion[i-1,j]</label>
-			<label kind="synchronisation" x="-59" y="17">move!k</label>
+			<label kind="guard" x="-93" y="0">pion[i, j]= 1 &amp;
+pion[i-1,j]=1</label>
+			<label kind="synchronisation" x="-93" y="34">move!k</label>
+			<label kind="assignment" x="-93" y="51">pion[i-1,j]=0</label>
 		</transition>
 		<transition>
 			<source ref="id21"/>
