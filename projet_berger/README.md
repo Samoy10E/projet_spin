@@ -13,8 +13,8 @@ On vérifie cette proposition après chaque mouvement, c'est à dire 2 étapes a
 
 On peut écrire : 
 
-`[](measure -> XX(	(state_mouton==state_chou -> state_mouton==state_berger) &&
-					(state_mouton==state_loup -> state_mouton==state_berger)))`
+`[](measure -> XX(	((state_mouton==state_chou) -> (state_mouton==state_berger)) &&
+					((state_mouton==state_loup) -> (state_mouton==state_berger)))`
 
 On voudrait utiliser opérateur temporel X, mais dans [la documentation](http://spinroot.com/spin/Man/ltl.html) il est noté:
 
