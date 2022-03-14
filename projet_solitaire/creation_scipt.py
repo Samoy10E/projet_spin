@@ -5,8 +5,8 @@ def creer_plateau(nomFichier):
     with open("plateau/{}.txt".format(nomFichier), "r") as fichierPlateau:
         plateauTXT = fichierPlateau.readlines()
 
-    plateau = "bit plateau[][] = {\t"
-    pions = "bit pions[][] = {\t"
+    plateau = "bit plateau[] = {\t"
+    pions = "bit pions[] = {\t"
 
     Nb_pion = 0
     placement_pion = []
@@ -14,10 +14,7 @@ def creer_plateau(nomFichier):
     for j,ligne in enumerate(plateauTXT):
         if j!=0:
             plateau += "\t\t\t\t\t"
-            pions += "\t\t\t\t\t"
-
-        plateau += "{"
-        pions += "{"
+            pions += "\t\t\t\t"
 
         for i,case in enumerate(ligne[:-1]):
             if case == "O":
@@ -33,20 +30,18 @@ def creer_plateau(nomFichier):
                 pions += " 0"
 
 
-            if i<len(ligne)-1:
+            if i<len(ligne)-2:
                 plateau += ","
                 pions += ","
 
-        plateau += "}"
-        pions += "}"
         if j<len(plateauTXT)-1:
-            plateau += "\n"
-            pions += "\n"
+            plateau += ",\n"
+            pions += ",\n"
 
     plateau += "};\n\n"
     pions += "};\n\n"
 
-    dim = "short Imax = {};\nshort Jmax = {};\nint Nb_pion = {};\n\n".format(len(plateauTXT[0])-1,len(plateauTXT),Nb_pion)
+    dim = "int Imax = {};\nint Jmax = {};\nint Nb_pion = {};\n\n".format(len(plateauTXT[0])-1,len(plateauTXT),Nb_pion)
     return dim, plateau, pions, placement_pion
 
 
@@ -71,7 +66,7 @@ def creer_script(nomFichier):
     script += "init{\n"
     script += "atomic{\n"
     for n,coord in enumerate(placement_pion):
-        script += "run({},{});".format(coord[0],coord[1])
+        script += "run pion({},{});".format(coord[0],coord[1])
         if n%10==0 and n!=0:
             script += "\n"
     script += "}\n}\n"
@@ -81,4 +76,5 @@ def creer_script(nomFichier):
     fichier_solitaire.close()
     return script
 
-
+creer_script("plateau1")
+[](measure -> (((state_loup==state_mouton) || (state_chou== state_mouton))->(state_berger==state_mouton)))
