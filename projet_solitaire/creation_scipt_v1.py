@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import os
+
 
 def creer_plateau(nomFichier):
 
@@ -60,10 +62,11 @@ def creer_script(nomFichier):
             script += "\n"
     script += "}\n}\n"
 
-    fichier_solitaire = open("solitaires/solitaire_"+nomFichier+".pml","w")
+    fichier_solitaire = open("solitairesv1/solitaire_"+nomFichier+".pml","w")
     fichier_solitaire.write(script)
     fichier_solitaire.close()
     return script
 
 creer_script("plateau1")
+
 
