@@ -105,7 +105,7 @@ pions[15] =  0;
 run Joueur();
 
 }
-never{ /*<> (succes */
+never{ /*<> (succes) */
 T0_init:
 	do
 	::atomic{((succes)) -> assert (!((succes)))}
